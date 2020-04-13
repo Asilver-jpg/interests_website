@@ -1,0 +1,2 @@
+module TtopicThreadsHelper
+end
