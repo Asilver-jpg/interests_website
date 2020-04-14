@@ -1,0 +1,7 @@
+<h1><%=@sub_category.name%></h1>
+<ol>
+<%@sub_category.topic_threads.each do |thread|%>
+<li><%=link_to thread.title, topic_thread_path(thread)%>
+<%=thread.views%>
+<%end%>
+</ol>

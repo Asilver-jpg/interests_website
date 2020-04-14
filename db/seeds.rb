@@ -7,10 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
-Category.destroy_all
 SubCategory.destroy_all
-Profile.destroy_all
 TopicThread.destroy_all
+Category.destroy_all
+Profile.destroy_all
+
 
 
 #primary categories
@@ -35,8 +36,11 @@ Profile.create(name:Faker::Games::SuperSmashBros.fighter, username: Faker::Games
 
 #topic threads
 10.times do
-    TopicThread.create(title:Faker::Book.title , description: Faker::Lorem.sentence, views:rand(1..100) , profile_id: Profile.all.sample.id , sub_category_id: SubCategory.all.sample.id)
+    TopicThread.create(title:Faker::Book.title , 
+        description: Faker::Lorem.sentence, views:rand(1..100) , profile_id: Profile.all.sample.id , 
+        sub_category_id: SubCategory.all.sample.id)
 end
+
 
 
 

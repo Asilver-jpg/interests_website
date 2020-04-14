@@ -1,0 +1,7 @@
+<h1><%=@category.name%></h1>
+<ol>
+<%@category.sub_categories.each do |subcategory|%>
+
+<li><%=link_to subcategory.name, sub_category_path(subcategory)%></li>
+<%end%>
+</ol>
