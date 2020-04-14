@@ -1,0 +1,7 @@
+<h1>Profiles Index Page</h1>
+
+<ul>
+<% @profiles.each do |profile|%>
+<li><%= link_to profile.name, profile %></li>
+<% end%>
+</ul>

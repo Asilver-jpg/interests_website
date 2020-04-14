@@ -7,10 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
-Category.destroy_all
 SubCategory.destroy_all
-Profile.destroy_all
 TopicThread.destroy_all
+Post.destroy_all
+Category.destroy_all
+Profile.destroy_all
+
+
 
 
 #primary categories
