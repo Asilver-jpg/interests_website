@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :tposts
-  resources :ttopic_threads
+  resources :posts
+  resources :topic_threads
   resources :sub_categories
   resources :categories
   resources :profiles

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_13_212045) do
+ActiveRecord::Schema.define(version: 2020_04_13_211220) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -40,7 +40,8 @@ ActiveRecord::Schema.define(version: 2020_04_13_212045) do
   create_table "sub_categories", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.integer "category_id"
+    t.integer "category_id", null: false
+    t.index ["category_id"], name: "index_sub_categories_on_category_id"
   end
 
   create_table "topic_threads", force: :cascade do |t|
@@ -57,6 +58,7 @@ ActiveRecord::Schema.define(version: 2020_04_13_212045) do
 
   add_foreign_key "posts", "profiles"
   add_foreign_key "posts", "topic_threads"
-  add_foreign_key "topic_threads", "categories", column: "sub_category_id"
+  add_foreign_key "sub_categories", "categories"
   add_foreign_key "topic_threads", "profiles"
+  add_foreign_key "topic_threads", "sub_categories"
 end
