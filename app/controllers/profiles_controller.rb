@@ -5,8 +5,8 @@ class ProfilesController < ApplicationController
     end
 
     def create
+        @profile = Profile.create(profile_params)
         if @profile.valid?
-            @profile.create(profile_params)
             redirect_to @profile
         else flash[:errors] = @profile.errors.full_messages
             redirect_to new_profile_path(@profile)
