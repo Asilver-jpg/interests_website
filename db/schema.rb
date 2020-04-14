@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_13_212045) do
+ActiveRecord::Schema.define(version: 2020_04_14_215212) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -57,6 +57,6 @@ ActiveRecord::Schema.define(version: 2020_04_13_212045) do
 
   add_foreign_key "posts", "profiles"
   add_foreign_key "posts", "topic_threads"
-  add_foreign_key "topic_threads", "categories", column: "sub_category_id"
   add_foreign_key "topic_threads", "profiles"
+  add_foreign_key "topic_threads", "sub_categories"
 end

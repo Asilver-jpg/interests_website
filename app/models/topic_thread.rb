@@ -1,5 +1,5 @@
 class TopicThread < ApplicationRecord
-  belongs_to :category
+  belongs_to :sub_category
   belongs_to :profile
-  has_many :posts
+  has_many :posts, dependent: :destroy
 end
