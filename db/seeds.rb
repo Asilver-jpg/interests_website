@@ -35,11 +35,9 @@ Profile.create(name:Faker::Games::SuperSmashBros.fighter, username: Faker::Games
 Profile.create(name:Faker::Games::SuperSmashBros.fighter, username: Faker::Games::Witcher.character, zip_code: 11415, age: 21)
 
 #topic threads
-10.times do
-    TopicThread.create(title:Faker::Book.title , 
-        description: Faker::Lorem.sentence, views:rand(1..100) , profile_id: Profile.all.sample.id , 
-        sub_category_id: SubCategory.all.sample.id)
-end
+ 10.times do
+     TopicThread.create(title:Faker::Book.title , description: Faker::Lorem.sentence, views:rand(1..100) , profile_id: Profile.all.sample.id , sub_category_id: SubCategory.all.sample.id)
+ end
 
 
 
