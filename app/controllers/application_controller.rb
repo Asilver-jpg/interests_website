@@ -7,11 +7,10 @@ class ApplicationController < ActionController::Base
   end 
 
   def authorized
-    if @current_profile
-      # execute normally
-    else 
+    if !(@current_profile)
       flash[:errors] = ["must be logged in to see that page"]
       redirect_to login_path
     end 
+    
   end 
 end
