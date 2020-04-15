@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
+  resources :interests
   resources :posts
   resources :topic_threads
   resources :sub_categories
   resources :categories
-  resources :profiles
-
-
-
-
+  
+  
+  post 'interests', to: 'interests#create', as: 'interests'
   get '/sessions/login', to: 'sessions#new', as: 'login'
   post '/sessions', to: 'sessions#create', as: 'sessions'
   delete '/sessions', to: 'sessions#destroy'
