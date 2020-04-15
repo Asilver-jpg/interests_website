@@ -1,5 +1,5 @@
 <h1><%=@topic_thread.title%></h1><br>
-<%byebug%>
+
 <%=link_to @topic_thread.profile.name, profile_path(@topic_thread.profile)%>
 <p><%=@topic_thread.description%><br>
 <%@topic_thread.views += 1%>
