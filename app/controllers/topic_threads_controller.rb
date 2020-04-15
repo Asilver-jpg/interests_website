@@ -6,7 +6,6 @@ class TopicThreadsController < ApplicationController
     def create
         @topic_thread= TopicThread.new(topic_thread_params)
         @topic_thread.views=0
-        
         @topic_thread.sub_category_id= session[:current_sub_category]
         @topic_thread.profile_id= session[:profile_id]
         
@@ -25,6 +24,7 @@ class TopicThreadsController < ApplicationController
 
     def show
         @topic_thread= TopicThread.find_by(params[:id])
+        
     end
 
     private
