@@ -12,5 +12,9 @@ Rails.application.routes.draw do
   post '/sessions', to: 'sessions#create', as: 'sessions'
   delete '/sessions', to: 'sessions#destroy'
 
+  # get '/search/form', to: 'search#new', as: 'new_search'
+  # post '/search/', to: 'search#create', as: ''
+  # show '/search/:search_term', to: 'search#show', as: 'search_results'
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
