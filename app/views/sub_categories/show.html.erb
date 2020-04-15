@@ -1,0 +1,12 @@
+<h1><%=@sub_category.name%></h1><br>
+<%session[:current_sub_category]=@sub_category.id%>
+<%= button_to "Create new Thread", new_topic_thread_path, method: :get %><br>
+
+<%@sub_category.topic_threads.each do |thread|%>
+<div class="thread">
+   <%=link_to thread.title, topic_thread_path(thread)%>
+    <span class="views"><%=thread.views%></span><br>
+    <%=link_to thread.profile.name, profile_path(thread.profile) %>
+</div><br>
+<%end%>
+

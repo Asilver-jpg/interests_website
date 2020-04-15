@@ -1,0 +1,5 @@
+<h1><%=@topic_thread.title%></h1><br>
+<%=link_to @topic_thread.profile.name, profile_path(@topic_thread.profile)%>
+<p><%=@topic_thread.description%><br>
+<%@topic_thread.views += 1%>
+<%= button_to "Back", sub_category_path(session[:current_sub_category]), method: :get %>

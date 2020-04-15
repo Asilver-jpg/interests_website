@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2020_04_14_224858) do
+
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -46,11 +48,11 @@ ActiveRecord::Schema.define(version: 2020_04_14_224858) do
   end
 
   create_table "topic_threads", force: :cascade do |t|
-    t.integer "sub_category_id", null: false
     t.string "title"
     t.string "description"
-    t.integer "profile_id", null: false
     t.integer "views"
+    t.integer "sub_category_id", null: false
+    t.integer "profile_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["profile_id"], name: "index_topic_threads_on_profile_id"
