@@ -1,20 +1,29 @@
 class ProfilesController < ApplicationController
     before_action :find_profile, only:[:show, :edit, :update, :destroy]
+    skip_before_action :authorized, only: [:new, :create]
     def new
         @profile = Profile.new
     end
 
     def create
-        @profile = Profile.create(profile_params)
-        if @profile.valid?
-            redirect_to @profile
-        else flash[:errors] = @profile.errors.full_messages
-            redirect_to new_profile_path(@profile)
-        end
+      profile = Profile.create(profile_params)
+      if profile.valid? 
+      session[:profile_id] = profile.id 
+      redirect_to profile
+    else
+      flash[:errors] = profile.errors.full_messages
+      redirect_to new_profile_path 
+    end
     end
 
     def edit
-        
+    @profile = Profile.find(params[:id])
+
+    if @profile == @current_profile
+    else
+      flash[:error] = "You can only edit your profile"
+      redirect_to profile_path(@profile.id)
+    end 
     end
 
     def update
@@ -42,7 +51,7 @@ class ProfilesController < ApplicationController
 
     private
     def profile_params
-        params.require(post).permit(:name, :age, :username, :zip_code)
+        params.require(:profile).permit(:name, :age, :username, :zip_code, :password)
     end
 
     def find_profile
