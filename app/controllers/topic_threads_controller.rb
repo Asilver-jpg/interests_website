@@ -5,14 +5,26 @@ class TopicThreadsController < ApplicationController
 
     def create
         @topic_thread= TopicThread.new(topic_thread_params)
-        byebug
+        @topic_thread.views=0
+        
+        @topic_thread.sub_category_id= session[:current_sub_category]
+        @topic_thread.profile_id= Profile.all.sample().id
+        
+        if @topic_thread.valid?
+        
         @topic_thread.save
        
         redirect_to topic_thread_path(@topic_thread)
-    end
+        else
+            flash[:errors] = @topic_thread.errors.full_messages
+            redirect_to new_topic_thread_path
+        end
+            
+        end
+    
 
     def show
-        @topic_thread= TopicThead.find_by(params[:id])
+        @topic_thread= TopicThread.find_by(params[:id])
     end
 
     private

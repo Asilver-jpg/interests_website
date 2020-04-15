@@ -4,3 +4,10 @@
 <p><b>USERNAME:</b><%= @profile.username %></p>
 <p><b>AGE:</b><%= @profile.age %></p>
 <p><b>ZIP CODE:</b><%= @profile.zip_code %></p>
+
+<%@profile.topic_threads.each do |thread|%>
+<div class="profile_thread">
+<h1><%=link_to  thread.title, topic_thread_path(thread)%></h1>
+<p><%=link_to thread.sub_category.name, sub_category_path(thread.sub_category)%> <span class="views"><%=thread.views%></span></p>
+</div>
+<%end%>
