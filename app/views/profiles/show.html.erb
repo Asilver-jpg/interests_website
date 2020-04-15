@@ -10,6 +10,15 @@
 <p><b>ZIP CODE:</b><%= @profile.zip_code %></p>
 
 
+  <h2> Topic Threads Created
+<%@profile.topic_threads.each do |thread|%>
+<div class="profile_thread">
+<h1><%=link_to  thread.title, topic_thread_path(thread)%></h1>
+<p><%=link_to thread.sub_category.name, sub_category_path(thread.sub_category)%> <span class="views"><%=thread.views%></span></p>
+</div>
+<%end%>
+
+
 <h2>My Post History</h2>
   <% @profile.posts.each do |post| %>
     <%= "#{post.topic_thread.title}" %>

@@ -8,7 +8,7 @@ class TopicThreadsController < ApplicationController
         @topic_thread.views=0
         
         @topic_thread.sub_category_id= session[:current_sub_category]
-        @topic_thread.profile_id= Profile.all.sample().id
+        @topic_thread.profile_id= session[:profile_id]
         
         if @topic_thread.valid?
         
