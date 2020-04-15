@@ -10,7 +10,8 @@
   </head>
 
   <body>
-  <ul>
+  
+  <ul id="nav">
         <li><%= link_to 'All Categories', categories_path %></li>
         <% if @current_profile %>
           <li class='right'><%= @current_profile.name %></li>

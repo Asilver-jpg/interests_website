@@ -3,9 +3,11 @@ class ProfilesController < ApplicationController
     skip_before_action :authorized, only: [:new, :create, :index, :show]
     def new
         @profile = Profile.new
+      
     end
 
     def create
+        byebug
       profile = Profile.create(profile_params)
       if profile.valid? 
       session[:profile_id] = profile.id 
@@ -27,6 +29,7 @@ class ProfilesController < ApplicationController
     end
 
     def update
+        byebug
         if @profile.update
             redirect_to @profile
         else
