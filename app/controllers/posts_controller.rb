@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
     before_action :find_post, only:[:show, :edit, :update, :destroy]
+    skip_before_action :authorized, only: [:show]
     def new
         @post = Post.new
     end
@@ -38,7 +39,7 @@ class PostsController < ApplicationController
 
     private
     def post_params
-        params.require(post).permit(:body)
+        params.require(:post).permit(:body)
     end
 
     def find_post
