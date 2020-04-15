@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
     before_action :find_profile, only:[:show, :edit, :update, :destroy]
-    skip_before_action :authorized, only: [:new, :create]
+    skip_before_action :authorized, only: [:new, :create, :index, :show]
     def new
         @profile = Profile.new
     end
