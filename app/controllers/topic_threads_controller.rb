@@ -5,8 +5,10 @@ class TopicThreadsController < ApplicationController
 
     def create
         @topic_thread= TopicThread.new(topic_thread_params)
+        byebug
         @topic_thread.save
-        redirect_to topic_thread+path(@topic_thread)
+       
+        redirect_to topic_thread_path(@topic_thread)
     end
 
     def show

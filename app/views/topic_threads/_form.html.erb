@@ -11,7 +11,8 @@
 <%= f.text_field :title %>
 <%=f.label :description%>
 <%=f.text_area :description%>
-<%@topic_thread.views=0%>
-<%%>
+<%= f.hidden_field :views, value:0%>
+<%=f.hidden_field :sub_category_id, value: session[:current_sub_category]%>
+<%=f.hidden_field :profile_id, value: Profile.all.sample().id%>
 <%= f.submit %>
 <% end%>
