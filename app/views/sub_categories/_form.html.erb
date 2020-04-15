@@ -1,0 +1,17 @@
+<% if flash[:errors] %>
+<ul>
+<% flash[:errors].each do |error|%>
+<li><%= error %></li>
+<% end%>
+</ul>
+<% end %>
+
+<%= form_for @topic_thread do |f| %>
+<%= f.label :title %>
+<%= f.text_field :title %>
+<%=f.label :description%>
+<%=f.text_area :description%>
+<%@topic_thread.views=0%>
+<%%>
+<%= f.submit %>
+<% end%>

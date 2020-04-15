@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   resources :sub_categories
   resources :categories
   resources :profiles
+
+  get 'topic_threads/new' => 'topic_threads#new', as: 'new_topic'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
