@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
 
   def destroy 
     # session[:user_id] = nil
-    session.delete(:user_id)
+    session.delete(:profile_id)
     redirect_to categories_path
   end 
 end
