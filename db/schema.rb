@@ -10,12 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_14_224858) do
+ActiveRecord::Schema.define(version: 2020_04_15_215605) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "interests", force: :cascade do |t|
+    t.integer "profile_id", null: false
+    t.integer "sub_category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["profile_id"], name: "index_interests_on_profile_id"
+    t.index ["sub_category_id"], name: "index_interests_on_sub_category_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -46,17 +55,19 @@ ActiveRecord::Schema.define(version: 2020_04_14_224858) do
   end
 
   create_table "topic_threads", force: :cascade do |t|
+    t.integer "sub_category_id", null: false
     t.string "title"
     t.string "description"
-    t.integer "views"
-    t.integer "sub_category_id", null: false
     t.integer "profile_id", null: false
+    t.integer "views"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["profile_id"], name: "index_topic_threads_on_profile_id"
     t.index ["sub_category_id"], name: "index_topic_threads_on_sub_category_id"
   end
 
+  add_foreign_key "interests", "profiles"
+  add_foreign_key "interests", "sub_categories"
   add_foreign_key "posts", "profiles"
   add_foreign_key "posts", "topic_threads"
   add_foreign_key "sub_categories", "categories"
