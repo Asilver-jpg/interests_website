@@ -6,6 +6,10 @@
 </ul>
 <% end %>
 
+<% if flash[:error] %>
+<p><b><%= flash[:error] %></b></p>
+<% end%>
+
 <%= form_for @post do |f| %>
 <%= f.label :body %>
 <%= f.text_area :body %>

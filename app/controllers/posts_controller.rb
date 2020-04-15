@@ -15,7 +15,13 @@ class PostsController < ApplicationController
     end
 
     def edit
-        
+        @post = Post.find(params[:id])
+
+    if @post.profile.id == @current_profile
+    else
+      flash[:error] = "You can only edit your own posts"
+      redirect_to post_path(@post)
+    end 
     end
 
     def update
