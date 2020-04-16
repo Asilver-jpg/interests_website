@@ -1,6 +1,22 @@
 <h1><%=@topic_thread.title%></h1><br>
-
+<%flash[:current_thread]=@topic_thread.id%>
 <%=link_to @topic_thread.profile.name, profile_path(@topic_thread.profile)%>
 <p><%=@topic_thread.description%><br>
-<%@topic_thread.views += 1%>
+<hr>
+<%@topic_thread.views += 1%><br>
+
+<%= form_for(@post, url:create_post_path(@post)) do |f|%>
+<%=f.label :body%>
+<%=f.text_area :body%>
+<%=f.submit%>
+
+<%end%>
+
+<%@topic_thread.posts.each do |post|%>
+<div class="post">
+<h4 class="poster"><%=Profile.find(post.profile_id).name%></h4>
+
+<p class= "post_body"><%=post.body%><p>
+</div>
+<%end%><br>
 <%= button_to "Back", sub_category_path(session[:current_sub_category]), method: :get %>

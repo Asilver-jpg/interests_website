@@ -55,11 +55,11 @@ ActiveRecord::Schema.define(version: 2020_04_15_215605) do
   end
 
   create_table "topic_threads", force: :cascade do |t|
-    t.integer "sub_category_id", null: false
     t.string "title"
     t.string "description"
-    t.integer "profile_id", null: false
     t.integer "views"
+    t.integer "sub_category_id", null: false
+    t.integer "profile_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["profile_id"], name: "index_topic_threads_on_profile_id"
