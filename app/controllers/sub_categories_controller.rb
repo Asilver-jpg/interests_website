@@ -14,7 +14,8 @@ class SubCategoriesController < ApplicationController
     end
 
     def show
-        @sub_category= SubCategory.find_by(params[:id])
+        @sub_category= SubCategory.find(params[:id])
+        session[:current_sub_category]=@sub_category.id
     end
 
     private
