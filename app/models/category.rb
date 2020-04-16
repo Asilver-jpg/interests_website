@@ -1,6 +1,6 @@
 class Category < ApplicationRecord
-    has_many :sub_categories
-    has_many :posts
+    has_many :sub_categories, dependent: :destroy
+    has_many :posts, dependent: :destroy
     def self.search(params)
         categories= Category.all
         categories.select {|cat| cat.matches?(params)}

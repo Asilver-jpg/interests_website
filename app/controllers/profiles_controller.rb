@@ -28,7 +28,7 @@ class ProfilesController < ApplicationController
     end
 
     def update
-        if @profile.update
+        if @profile.update(profile_params)
             redirect_to @profile
         else
             flash[:errors] = @profile.errors.full_messages

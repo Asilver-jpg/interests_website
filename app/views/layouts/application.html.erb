@@ -20,7 +20,7 @@
   <ul id="nav">
         <li><%= link_to 'All Categories', categories_path %></li>
         <% if @current_profile %>
-          <li class='right'><%= @current_profile.name %></li>
+          <li class='right'><%= link_to @current_profile.name, @current_profile %></li>
           <li class='right'><%= link_to "Log Out", sessions_path, method: :delete %></li>
         <% else %>
           <li class='right'><%= link_to 'Sign-up', new_profile_path %></li>
