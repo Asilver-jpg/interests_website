@@ -27,6 +27,11 @@ class TopicThreadsController < ApplicationController
         @post= Post.new
     end
 
+        def destroy
+            @topic_thread= TopicThread.find(params[:id])
+            @topic_thread.destroy
+            redirect_to sub_category_path(session[:current_sub_category])
+        end
     private
 
     def topic_thread_params

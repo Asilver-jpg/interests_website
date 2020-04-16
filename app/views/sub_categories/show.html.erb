@@ -9,12 +9,10 @@
    <%=link_to thread.title, topic_thread_path(thread)%>
     <span class="views"><%=thread.views%></span><br>
     <%=link_to thread.profile.name, profile_path(thread.profile) %>
- 
-
+    <%if thread.profile == @current_profile%>
+       <%= button_to ("Delete", delete_topic_thread_path, :method => :delete )%>
+    <%end%>
 </div><br>
 <%end%>
 
 
- @profile = Profile.find(params[:id])
-
-    if @profile == @current_profile
