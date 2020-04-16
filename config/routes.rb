@@ -4,9 +4,14 @@ Rails.application.routes.draw do
   resources :sub_categories
   resources :categories
   resources :profiles
+  resources :interests, only:[:new]
+  
+  post '/interests', to: 'interests#create', as: 'create_interest'
+  
   
   post '/posts', to: 'posts#create', as: 'create_post'
   post '/interests', to: 'interests#create', as: 'interests'
+  
   get '/sessions/login', to: 'sessions#new', as: 'login'
   post '/sessions', to: 'sessions#create', as: 'sessions'
   delete '/sessions', to: 'sessions#destroy'

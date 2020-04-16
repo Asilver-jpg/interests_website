@@ -9,6 +9,11 @@
 <p><b>AGE:</b><%= @profile.age %></p>
 <p><b>ZIP CODE:</b><%= @profile.zip_code %></p>
 
+  <h2>My Interests</h2>
+  <% @profile.interests.each do |interest|%>
+  <%= link_to interest.sub_category.name, sub_category_path(interest.sub_category.id) %>
+  <% end%>
+  <%= button_to "Add Interests", new_interest_path, method: :get %>
 
   <h2> Topic Threads Created
 <%@profile.topic_threads.each do |thread|%>
