@@ -6,7 +6,11 @@
 </ul>
 <% end %>
 
-<%= form_for @profile, :url => interests_path(@profile) do |f| %>
+<% if flash[:error] %>
+<p><b><%= flash[:error] %></b></p>
+<% end%>
+
+<%= form_for @profile do |f| %>
 
 <%= f.label :name %>
 <%= f.text_field :name %>

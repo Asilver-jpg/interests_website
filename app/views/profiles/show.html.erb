@@ -4,10 +4,11 @@
 <p><b><%= flash[:error] %></b></p>
 <% end%>
 
-<p><b>NAME:</b> <%= @profile.name %></p>
-<p><b>USERNAME:</b> <%= @profile.username %></p>
-<p><b>AGE:</b> <%= @profile.age %></p>
-<p><b>ZIP CODE:</b> <%= @profile.zip_code %></p>
+<p><b>NAME:</b><%= @profile.name %></p>
+<p><b>USERNAME:</b><%= @profile.username %></p>
+<p><b>AGE:</b><%= @profile.age %></p>
+<p><b>ZIP CODE:</b><%= @profile.zip_code %></p>
+<%= button_to "Edit Profile", edit_profile_path, method: :get %>
 
   <h2>My Interests</h2>
   <% @profile.interests.each do |interest|%>
