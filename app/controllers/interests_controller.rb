@@ -4,10 +4,10 @@ class InterestsController < ApplicationController
     end
     
     def create
-        params[:subcatergories].map do |subcategory|
-            interest = Interest.create(sub_category_id: subcategory.to_i, profile_id: @current_profile)
+        params[:subcategories].each do |subcategory|
+            @interest = Interest.create(sub_category_id: subcategory.to_i, profile_id: @current_profile.id)
         end 
-        if  interest 
+        if  @interest 
             redirect_to @current_profile
         else
             flash[:errors] = interest.errors.full_messages
