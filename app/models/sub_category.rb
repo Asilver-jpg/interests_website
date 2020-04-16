@@ -1,7 +1,7 @@
 class SubCategory < ApplicationRecord
   belongs_to :category
-  has_many :topic_threads
-  has_many :interests
+  has_many :topic_threads, dependent: :destroy
+  has_many :interests, dependent: :destroy
   has_many :profiles, through: :interests
   
   def self.search(params)
