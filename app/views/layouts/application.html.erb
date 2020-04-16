@@ -4,29 +4,98 @@
     <title>Mod2</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
   </head>
 
   <body>
-
-  <%=form_tag(create_search_path, method: :post) do%>
-  <%=text_field_tag(:search, params[:search])%>
-  <%=submit_tag("Search")%>
-  <%end%>
-
   
   <ul id="nav">
-        <li><%= link_to 'All Categories', categories_path %></li>
+        <li class="navLi"><%= link_to 'Categories', categories_path, :class=>"navText" %></li>
+            <% if @current_profile %>
+          <li class="navLi"><%= link_to "Profile", @current_profile, method: :get, :class=>"navText" %></li>
+
+            <%end%>
+        <li id="navCenter"class= "navLi"><p id="navCenterText">Website Name <p> </li>
         <% if @current_profile %>
-          <li class='right'><%= link_to @current_profile.name, @current_profile %></li>
-          <li class='right'><%= link_to "Log Out", sessions_path, method: :delete %></li>
+
+  
+          <li class='right navLi'><%= link_to "Log Out", sessions_path, method: :delete, :class=>"navText" %></li>
+
         <% else %>
-          <li class='right'><%= link_to 'Sign-up', new_profile_path %></li>
-          <li class='right'><%= link_to 'Login', login_path %></li>
+          <li class='right navLi'><%= link_to 'Sign-up', new_profile_path,:class=>"navText"  %></li>
+          <li class='righ navLit'><%= link_to 'Login', login_path,:class=>"navText"  %></li>
         <% end %>
-      </ul>
+        <li class='right navLi', id='searchBar'> <%=form_tag(create_search_path, method: :post) do%>
+  <%=text_field_tag(:search, params[:search])%>
+  <%=submit_tag("Search")%></li>
+  <%end%>
+      </ul><br><br>
     <%= yield %>
   </body>
 </html>
+<style>
+.category{
+background-color: black
+}
+#nav{
+list-style-type: none;
+
+width: 100%;
+
+text-align:center;
+   display: inline-block;
+}
+#searchBar{
+height:47px;
+
+}
+#nav > li{
+  float:left;
+  padding: 14px 16px;
+   background-color: #333;
+}
+#navCenter{
+  width:50%;
+  height:47px;
+  float:left;
+  background-color:#333;
+  color:white
+}
+
+#navCenterText{
+text-align:center;
+margin-left:3em;
+ font-family:'Raleway', sans-serif;
+}
+
+.search{
+margin:0;
+position:absolute;
+top:50%;
+}
+.right{
+float:right
+}
+.navText{
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-family:'Raleway', sans-serif;
+}
+
+.navLi:a{
+
+  
+}
+
+.navText:hover{
+background-color:#d3d3d3;
+color:black;
+
+}
+</style>

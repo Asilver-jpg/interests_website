@@ -3,6 +3,8 @@
 <h2><b>Sub-Categories</b></h2>
 <ul>
 <% @category.sub_categories.each do |sub_category|%>
-<li><%= link_to sub_category.name, sub_category %></li>
+<div class="category">
+<li class="white"><%= link_to sub_category.name, sub_category %></li>
+</div>
 <% end%>
 </ul>

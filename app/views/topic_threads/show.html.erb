@@ -6,7 +6,7 @@
 <%@topic_thread.views += 1%><br>
 
 <%= form_for(@post, url:create_post_path(@post)) do |f|%>
-<%=f.label :body%>
+<%=f.label :Comment%>
 <%=f.text_area :body%>
 <%=f.submit%>
 

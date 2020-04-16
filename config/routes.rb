@@ -20,5 +20,6 @@ Rails.application.routes.draw do
   post '/search/', to: 'search#create', as: 'create_search'
   get '/search/:search_term', to: 'search#show', as: 'search_results'
 
+  delete '/topic_threads', to: 'topic_threads#destroy', as: 'delete_topic_thread'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
