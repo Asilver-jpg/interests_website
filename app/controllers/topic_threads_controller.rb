@@ -24,6 +24,7 @@ class TopicThreadsController < ApplicationController
 
     def show
         @topic_thread= TopicThread.find(params[:id])
+        @post=Post.new
         
     end
 

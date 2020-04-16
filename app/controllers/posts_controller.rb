@@ -6,11 +6,16 @@ class PostsController < ApplicationController
     end
 
     def create
-        @post = Post.create(post_params)
+
+        @post = Post.new
+        @post.body= params[:post][:body]
+        @post.topic_thread_id= flash[:current_thread]
+        @post.profile_id=session[:profile_id]
         if @post.valid?
-            redirect_to @post
+            @post.save
+            redirect_to topic_thread_path(flash[:current_thread])
         else flash[:errors] = @post.errors.full_messages
-            redirect_to new_post_path(@post)
+            redirect_to topic_thread_path(flash[:current_thread])
         end
     end
 
