@@ -23,12 +23,6 @@
 <%= f.label :password %>
 <%= f.password_field :password %>
 <br>
-<h2>Pick the Interests you are Interested in</h2>
-<br>
-<%SubCategory.all.each do |subcategory| %>
-<%= check_box_tag(:name) %>
-<%= label_tag(:name, "#{subcategory.name}") %> <br><br>
-<%end%>
 
 <%= f.submit %>
 <% end%>

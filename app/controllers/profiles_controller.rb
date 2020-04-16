@@ -7,7 +7,7 @@ class ProfilesController < ApplicationController
     end
 
     def create
-        byebug
+        
       profile = Profile.create(profile_params)
       if profile.valid? 
       session[:profile_id] = profile.id 

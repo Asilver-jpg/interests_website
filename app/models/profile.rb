@@ -9,14 +9,14 @@ class Profile < ApplicationRecord
 
    
   def self.search(params)
-    profiles= SubCategory.all
+    profiles= Profile.all
     profiles.select {|pro| pro.matches?(params)}
   end
 
   def matches?(params)
-    name= self.name
+    username= self.username
    
-      if params.include?(name)
+      if params.include?(username)
         return true
       end
     
