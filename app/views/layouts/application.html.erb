@@ -4,7 +4,7 @@
     <title>Mod2</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
@@ -13,20 +13,24 @@
   <body>
   
   <ul id="nav">
-        <li ><%= link_to 'Categories', categories_path, :class=>"navText" %></li>
-        <li id="navCenter"><p id="navCenterText">Website Name <p> </li>
+        <li class="navLi"><%= link_to 'Categories', categories_path, :class=>"navText" %></li>
+            <% if @current_profile %>
+          <li class="navLi"><%= link_to "Profile", @current_profile, method: :get, :class=>"navText" %></li>
+
+            <%end%>
+        <li id="navCenter"class= "navLi"><p id="navCenterText">Website Name <p> </li>
         <% if @current_profile %>
-          <li class='right'><%= @current_profile.name %></li>
-          <li class='right'><%= link_to "Log Out", sessions_path, method: :delete, :class=>"navText" %></li>
+  
+          <li class='right navLi'><%= link_to "Log Out", sessions_path, method: :delete, :class=>"navText" %></li>
         <% else %>
-          <li class='right'><%= link_to 'Sign-up', new_profile_path,:class=>"navText"  %></li>
-          <li class='right'><%= link_to 'Login', login_path,:class=>"navText"  %></li>
+          <li class='right navLi'><%= link_to 'Sign-up', new_profile_path,:class=>"navText"  %></li>
+          <li class='righ navLit'><%= link_to 'Login', login_path,:class=>"navText"  %></li>
         <% end %>
-        <li class='right', id='searchBar'> <%=form_tag(create_search_path, method: :post) do%>
+        <li class='right navLi', id='searchBar'> <%=form_tag(create_search_path, method: :post) do%>
   <%=text_field_tag(:search, params[:search])%>
   <%=submit_tag("Search")%></li>
   <%end%>
-      </ul><br><br><br>
+      </ul><br><br>
     <%= yield %>
   </body>
 </html>
@@ -82,13 +86,14 @@ float:right
   font-family:'Raleway', sans-serif;
 }
 
-li:a{
+.navLi:a{
 
   
 }
 
 .navText:hover{
-background-color:#111;
+background-color:#d3d3d3;
+color:black;
 
 }
 </style>

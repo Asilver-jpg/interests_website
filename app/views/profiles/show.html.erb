@@ -1,13 +1,13 @@
 <h1>Profile Page</h1>
-
+<div class="body">
 <% if flash[:error] %>
 <p><b><%= flash[:error] %></b></p>
 <% end%>
 
-<p><b>NAME:</b><%= @profile.name %></p>
-<p><b>USERNAME:</b><%= @profile.username %></p>
-<p><b>AGE:</b><%= @profile.age %></p>
-<p><b>ZIP CODE:</b><%= @profile.zip_code %></p>
+<p><b>NAME:</b> <%= @profile.name %></p>
+<p><b>USERNAME:</b> <%= @profile.username %></p>
+<p><b>AGE:</b> <%= @profile.age %></p>
+<p><b>ZIP CODE:</b> <%= @profile.zip_code %></p>
 
   <h2>My Interests</h2>
   <% @profile.interests.each do |interest|%>
@@ -29,4 +29,5 @@
     <%= "#{post.topic_thread.title}" %>
     <p><%= post.body%></p>
     <hr>
-  <% end  %>
+  <% end%>
+</div>
