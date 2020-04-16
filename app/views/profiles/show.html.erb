@@ -5,17 +5,25 @@
 <% end%>
 
 
+
 <p><b>NAME:</b> <%= @profile.name %></p>
 <p><b>USERNAME:</b> <%= @profile.username %></p>
 <p><b>AGE:</b> <%= @profile.age %></p>
 <p><b>ZIP CODE:</b> <%= @profile.zip_code %></p>
+
+  <% if @profile == @current_profile %>
+    <%= button_to "Edit Profile", edit_profile_path, method: :get %>
+  <% end %> 
+
 
 
   <h2>My Interests</h2>
   <% @profile.interests.each do |interest|%>
   <%= link_to interest.sub_category.name, sub_category_path(interest.sub_category.id) %>
   <% end%>
+  <% if @profile == @current_profile %>
   <%= button_to "Add Interests", new_interest_path, method: :get %>
+  <% end%>
 
   <h2> Topic Threads Created
 <%@profile.topic_threads.each do |thread|%>
