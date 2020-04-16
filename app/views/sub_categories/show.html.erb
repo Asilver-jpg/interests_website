@@ -1,4 +1,10 @@
+
 <h1><%=@sub_category.name%></h1><br>
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> master
 <%= button_to "Create new Thread", new_topic_thread_path, method: :get %><br>
 
 <%@sub_category.topic_threads.each do |thread|%>
@@ -6,9 +12,7 @@
    <%=link_to thread.title, topic_thread_path(thread)%>
     <span class="views"><%=thread.views%></span><br>
     <%=link_to thread.profile.name, profile_path(thread.profile) %>
-    <%if thread.profile== Profile.find(session[:profile_id]%>
-        <%=button_to "delete", {:controller => :topic_thread, :action =>'destroy', :id => thread.id}, :method=>delete%>
-    <%end%>
+ 
 
 </div><br>
 <%end%>
