@@ -9,8 +9,8 @@ class SubCategoriesController < ApplicationController
 
     def create
         @sub_category= SubCategory.new(sub_category_params)
-        @sub_categoyr.save
-        redirect_to sub_category_path(@
+        @sub_category.save
+        redirect_to sub_category_path(@sub_category)
     end
 
     def show

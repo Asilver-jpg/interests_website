@@ -1,0 +1,20 @@
+<h1>Pick the Interests you are Interested in</h1>
+<% if flash[:errors] %>
+<ul>
+<% flash[:errors].each do |error|%>
+<li><%= error %></li>
+<% end%>
+</ul>
+<% end %>
+
+<% if flash[:error] %>
+<p><b><%= flash[:error] %></b></p>
+<% end%>
+<%= form_tag create_interest_path do %>
+<%SubCategory.all.each_with_index do |subcategory, index| %>
+<%=check_box_tag 'subcategories[]', (index+1).to_s, false %> 
+<%= subcategory.name %>
+<br>
+<% end%>
+<input type = "Submit", value="Add Interests">
+<% end%>

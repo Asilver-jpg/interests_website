@@ -7,11 +7,10 @@ class ProfilesController < ApplicationController
     end
 
     def create
-        byebug
       profile = Profile.create(profile_params)
       if profile.valid? 
       session[:profile_id] = profile.id 
-      redirect_to profile
+      redirect_to new_interest_path
     else
       flash[:errors] = profile.errors.full_messages
       redirect_to new_profile_path 
@@ -29,7 +28,6 @@ class ProfilesController < ApplicationController
     end
 
     def update
-        byebug
         if @profile.update
             redirect_to @profile
         else
