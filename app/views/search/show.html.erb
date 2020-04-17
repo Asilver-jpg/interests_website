@@ -1,10 +1,11 @@
+<div class="body">
 <h1>Results</h1>
-
+<hr>
 <%if @categories.count>0%>
 <h2>Categories:</h2><br>
 <ul>
     <%@categories.each do |category|%>
-    <li class= "search_result"><%=link_to category["name"], category_path(category["id"])%>   </li>
+    <li class= "search_result"><%=link_to category["name"], category_path(category["id"]), :class=>"profileThreadSubCategory"%>   </li>
     <%end%>
     </ul>
 <%end%>
@@ -15,7 +16,7 @@
 <ul>
     <%@sub_categories.each do |sub_category|%>
 
-            <li class= "search_result"> <%=link_to sub_category["name"], sub_category_path(sub_category["id"])%> </li>
+            <li class= "search_result"> <%=link_to sub_category["name"], sub_category_path(sub_category["id"]), :class=>"profileThreadSubCategory"%> </li>
     <%end%>
     </ul>
 <%end%>
@@ -24,8 +25,9 @@
 <h2>Profiles:</h2><br>
 <ul>
     <%@profiles.each do |profile|%>
-            <li class= "search_result"> <%=link_to profile["username"], profile_path(profile["id"])%> </li>
+            <li class= "search_result"> <%=link_to profile["username"], profile_path(profile["id"]), :class=>"profileThreadSubCategory"%> </li>
     <%end%>
     </ul>
 <%end%>
 
+</div>

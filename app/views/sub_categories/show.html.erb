@@ -1,18 +1,21 @@
-<h1><%= link_to @sub_category.category.name, category_path(@sub_category.category) %></h1>
-<h1><%=@sub_category.name%></h1><br>
 
-<%= button_to "Create new Thread", new_topic_thread_path, method: :get %><br>
+<div class="body">
+<h1><%= link_to @sub_category.category.name, category_path(@sub_category.category) %></h1>
+<h1 class="title"><%=@sub_category.name%></h1><br>
+<hr>
+<%= button_to "Create new Thread", new_topic_thread_path, method: :get, :class=> "button" %><br>
+
 
 <%@sub_category.topic_threads.each do |thread|%>
 <div class="thread">
-   <%=link_to thread.title, topic_thread_path(thread)%>
-    <span class="views"><%=thread.views%></span><br>
-    <%=link_to thread.profile.name, profile_path(thread.profile) %>
+   <%=link_to thread.title, topic_thread_path(thread), :class=>"categoryText"%>
+    <span class="views">Views: <%=thread.views%></span><br>
+    <%=link_to thread.profile.name, profile_path(thread.profile), :class=> "user" %>
  
     <%if thread.profile == @current_profile%>
-         <%=button_to "Delete Thread", topic_thread_path(thread),method: :delete, :confirm=> "Are you sure you want to delete this thread?"%>
+         <%=button_to "Delete Thread", topic_thread_path(thread),method: :delete, :confirm=> "Are you sure you want to delete this thread?", :class=> "deleteButton"%>
      
     <%end%>
     </div><br>
 <%end%>
-
+</div>
