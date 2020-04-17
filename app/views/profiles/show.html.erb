@@ -18,16 +18,19 @@
 
 
   <h2>My Interests</h2>
-
+  <hr>
+<ul>
   <% @profile.interests.each do |interest|%>
   <%= link_to interest.sub_category.name, sub_category_path(interest.sub_category.id), :class=> "profileThreadSubCategory"%><br>
   <% end%><br>
+</ul>
+
   <% if @profile == @current_profile %>
   <%= button_to "Add Interests", new_interest_path, method: :get,:class=> "buttonProfile"  %>
   <% end%>
 
   <h2> Topic Threads Created
- 
+ <hr>
 <%@profile.topic_threads.each do |thread|%>
 <div class="profileThread">
 <h1><%=link_to  thread.title, topic_thread_path(thread), :class=>"profileThreadTitle"%></h1>
@@ -38,6 +41,7 @@
 <br>
 <br>
 <h2>My Post History</h2>
+<hr>
   <% @profile.posts.each do |post| %>
 
   <div class="profileThread">
