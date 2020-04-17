@@ -56,8 +56,9 @@
  }
 
  .categoryText:hover{
-    text-decoration: underline;
+    
     color:blue;
+    font-size:35px;
  }
 
  .categoryItem{
@@ -70,10 +71,45 @@
     background-color: #DCDCDC;
  }
 
+ .thread{
+
+        padding: 20px;
+        list-style-type: none;
+        width:85%;
+        border-radius: 25px;
+        border: 2px solid #DCDCDC;
+        margin-bottom:10px;
+        background-color: #DCDCDC;
+     
+ }
+
+ .views{
+    font-family:'Raleway', sans-serif;
+    float:right;
+ }
+
  .title{
 padding:15px;
 font-size: 50px;
 
+
+ }
+
+ .user{
+     display: inline-block;
+    font-family:'Raleway', sans-serif;
+    color: black;
+    padding-top:5px;
+ }
+
+ .user:hover{
+    color:blue;
+    font-size: 20px;
+
+ }
+ .user:link{
+     text-decoration: none;
+    
  }
 
  .subTitle{
@@ -81,5 +117,171 @@ font-size: 50px;
 padding:15px;
 font-size: 30px;
  }
+ .button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top:5px;
+    margin-left:8px;
+    border-radius:20px;
+    box-shadow: 0 5px #999;
+    font-family:'Raleway', sans-serif;
+  }
+
+  .button:active{
+    background-color: #3e8e41;
+    box-shadow: 0 1px #666;
+    transform: translateY(4px);
+  }
+ 
+.deleteButton{
+    float: right;
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 2px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top:5px;
+    margin-left:8px;
+    border-radius:20px;
+    
+    font-family:'Raleway', sans-serif;
+}
+
+.deleteButtonThread{
+
+  
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 2px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top:5px;
+    margin-left:8px;
+    border-radius:20px;
+    display: inline-block;
+    float:left;
+    font-family:'Raleway', sans-serif;
+}
+.deleteButtonThread:hover{
+    background-color: chartreuse;
+}
+.buttonProfile{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 2px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top:5px;
+    margin-left:8px;
+    border-radius:20px;
+    
+    font-family:'Raleway', sans-serif;
+}
+
+.buttonProfile:hover{
+    background-color: chartreuse;
+}
+
+.description{
+    display:inline-block;
+    background-color: white;
+    padding-top:10px;
+    padding-left:5px;
+    border: 3px solid #707070;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.4;
+    width:90%;
+}
+
+.post{
+    display:inline-block;
+    background-color: white;
+    padding-top:1px;
+    padding-left:5px;
+    border: 3px solid #707070;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.4;
+    width:80%;
+    margin-bottom:10px;
+}
+.comments{
+    margin-top:10px;
+    margin-bottom:40px;
+}
+
+.profileThread{
+    display:inline-block;
+    background-color:#F5F5F5;
+
+    padding-left:5px;
+    border: 2px solid #707070;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+ 
+    width:90%;
+    margin-bottom:5px;
+    margin-top:5px;
+    padding:5px;
+  
+
+}
+
+.profileThreadSubCategory{
+    color:black;
+font-size:20px;
+}
+.profileThreadSubCategory:link{
+    text-decoration: none;
+}
+
+.profileThreadTitle{
+    color:black;
+font-size:30px;
+}
+.profileThreadTitle:link{
+    color:black;
+    text-decoration: none;
+}
+.profileThreadSubCategory:hover{
+    color:blue;
+    font-size: 25px;
+
+ }
+ .profileThreadTitle:hover{
+    color:blue;
+    font-size: 45px;
+
+ }
+
+ .label{
+
+display:inline-block;
+line-height:30px;
+clear:left;
+width:75px;
+text-align: right;
+font-family:'Raleway', sans-serif;
+
+margin-bottom:5px;
+ }
+
+
   /* class styling   */ 
  

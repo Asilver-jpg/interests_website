@@ -1,42 +1,48 @@
-<h1>Profile Page</h1>
 <div class="body">
+<h1 class="title"><%= @profile.username%></h1>
+
 <% if flash[:error] %>
 <p><b><%= flash[:error] %></b></p>
 <% end%>
-
+<hr>
 
 
 <p><b>NAME:</b> <%= @profile.name %></p>
-<p><b>USERNAME:</b> <%= @profile.username %></p>
+
 <p><b>AGE:</b> <%= @profile.age %></p>
 <p><b>ZIP CODE:</b> <%= @profile.zip_code %></p>
 
   <% if @profile == @current_profile %>
-    <%= button_to "Edit Profile", edit_profile_path, method: :get %>
+    <%= button_to "Edit Profile", edit_profile_path, method: :get, :class=> "buttonProfile" %>
   <% end %> 
 
 
   <h2>My Interests</h2>
+
   <% @profile.interests.each do |interest|%>
-  <%= link_to interest.sub_category.name, sub_category_path(interest.sub_category.id) %>
-  <% end%>
+  <%= link_to interest.sub_category.name, sub_category_path(interest.sub_category.id), :class=> "profileThreadSubCategory"%><br>
+  <% end%><br>
   <% if @profile == @current_profile %>
-  <%= button_to "Add Interests", new_interest_path, method: :get %>
+  <%= button_to "Add Interests", new_interest_path, method: :get,:class=> "buttonProfile"  %>
   <% end%>
 
   <h2> Topic Threads Created
+ 
 <%@profile.topic_threads.each do |thread|%>
-<div class="profile_thread">
-<h1><%=link_to  thread.title, topic_thread_path(thread)%></h1>
-<p><%=link_to thread.sub_category.name, sub_category_path(thread.sub_category)%> <span class="views"><%=thread.views%></span></p>
+<div class="profileThread">
+<h1><%=link_to  thread.title, topic_thread_path(thread), :class=>"profileThreadTitle"%></h1>
+<p>Sub-Category: <%=link_to thread.sub_category.name, sub_category_path(thread.sub_category), :class=>"profileThreadSubCategory"%> <span class="views">Views: <%=thread.views%></span></p>
 </div>
 <%end%>
 
-
+<br>
+<br>
 <h2>My Post History</h2>
   <% @profile.posts.each do |post| %>
+  <div class="profileThread">
     <%= "#{post.topic_thread.title}" %>
     <p><%= post.body%></p>
+    </div>
     <hr>
   <% end%>
 </div>
