@@ -1,6 +1,8 @@
+<h1><-<%= link_to @sub_category.category.name, category_path(@sub_category.category), :class=>"backLink"%></h1>
 
 <div class="body">
-<h1><%= link_to @sub_category.category.name, category_path(@sub_category.category) %></h1>
+
+
 <h1 class="title"><%=@sub_category.name%></h1><br>
 <hr>
 <%= button_to "Create new Thread", new_topic_thread_path, method: :get, :class=> "button" %><br>

@@ -18,7 +18,7 @@
           <li class="navLi"><%= link_to "Profile", @current_profile, method: :get, :class=>"navText" %></li>
 
             <%end%>
-        <li id="navCenter"class= "navLi"><p id="navCenterText">Website Name <p> </li>
+        <li id="navCenter"class= "navLi"><p id="navCenterText">Rec Center <p> </li>
         <% if @current_profile %>
 
           <li class='right navLi'><%= link_to "Log Out", sessions_path, method: :delete,:class=>"navText" %></li>
@@ -92,7 +92,7 @@ float:right
 }
 
 .navText:hover{
-background-color:#d3d3d3;
+background-color:chartreuse;
 color:black;
 
 }

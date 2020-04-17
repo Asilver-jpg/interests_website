@@ -1,8 +1,8 @@
 
 
+<h1><-<%= link_to @topic_thread.sub_category.name, sub_category_path(@topic_thread.sub_category),:class=>"backLink" %></h1>
 
 <div class="body">
-<h1><%= link_to @topic_thread.sub_category.name, sub_category_path(@topic_thread.sub_category) %></h1>
 
 <h1 class="title"><%=@topic_thread.title%></h1><br>
 <%flash[:current_thread]=@topic_thread.id%>
@@ -21,7 +21,7 @@
 <%=f.submit :class=>"deleteButtonThread"%>
 <%end%>
 <% else%>
-  <p><%= You must be logged in to leave a comment%></p>
+  <p><%= "You must be logged in to leave a comment"%></p>
 <% end%>
 
 

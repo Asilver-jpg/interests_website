@@ -15,6 +15,7 @@ class PostsController < ApplicationController
             @post.save
             redirect_to topic_thread_path(flash[:current_thread])
         else flash[:errors] = @post.errors.full_messages
+            
             redirect_to topic_thread_path(flash[:current_thread])
         end
     end
