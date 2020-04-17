@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
     else 
       flash[:errors] = ["username or password is not right"]
 
-      redirect_to new_profile_path
+      redirect_to login_path
       # redirect_back fallback_location: new_profile_path
     end 
   end 
