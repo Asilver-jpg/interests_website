@@ -1,4 +1,5 @@
 class TopicThreadsController < ApplicationController
+    skip_before_action :authorized, only: [:show]
     def new
         @topic_thread= TopicThread.new
     end
@@ -24,14 +25,17 @@ class TopicThreadsController < ApplicationController
 
     def show
         @topic_thread= TopicThread.find(params[:id])
+        @new_views = @topic_thread.views.to_i + 1
+        @topic_thread.update_attribute(:views, @new_views)
         @post= Post.new
+        
     end
 
-        def destroy
-            @topic_thread= TopicThread.find(params[:id])
-            @topic_thread.destroy
-            redirect_to sub_category_path(session[:current_sub_category])
-        end
+    def destroy
+        @topic_thread= TopicThread.find(params[:id])
+        @topic_thread.destroy
+        redirect_to sub_category_path(session[:current_sub_category])
+    end
     private
 
     def topic_thread_params

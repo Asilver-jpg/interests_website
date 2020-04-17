@@ -7,14 +7,19 @@
          <%=button_to "Delete Thread", topic_thread_path(@topic_thread),method: :delete%>
 <%end%>
 <hr>
-<%@topic_thread.views += 1%><br>
 
+
+<% if @current_profile%>
 <%= form_for(@post, url:create_post_path(@post)) do |f|%>
 <%=f.label :Comment%>
 <%=f.text_area :body%>
-<%=f.submit%>
+<%=f.submit "Add Comment"%>
 
 <%end%>
+<% else%>
+<%= "You must be logged in to leave a comment" %>
+<% end%>
+
 
 <%@topic_thread.posts.each do |post|%>
 <div class="post">
