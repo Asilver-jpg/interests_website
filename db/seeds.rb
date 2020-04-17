@@ -45,17 +45,18 @@ SubCategory.create(name: "Soap Operas", category_id: Category.find_by(name:"TV S
 
 #profiles s
 
-Profile.create(name:Faker::Games::SuperSmashBros.fighter, username: Faker::Games::Witcher.character, zip_code: 10538, age: 21, password: 'pass123')
-Profile.create(name:Faker::Games::SuperSmashBros.fighter, username: Faker::Games::Witcher.character, zip_code: 10583, age: 21, password: 'pass123')
-Profile.create(name:Faker::Games::SuperSmashBros.fighter, username: Faker::Games::Witcher.character, zip_code: 11415, age: 21, password: 'pass123')
-Profile.create(name:Faker::Games::SuperSmashBros.fighter, username: Faker::Games::Witcher.character, zip_code: 11415, age: 21, password: 'pass123')
-Profile.create(name:Faker::Games::SuperSmashBros.fighter, username: Faker::Games::Witcher.character, zip_code: 11415, age: 21, password: 'pass123')
+Profile.create(name:Faker::Games::SuperSmashBros.fighter, username: Faker::Games::Witcher.character, zip_code: Faker::Address.zip_code, age: rand(13..50), password: 'pass123')
+Profile.create(name:Faker::Games::SuperSmashBros.fighter, username: Faker::Games::Witcher.character, zip_code: Faker::Address.zip_code, age: rand(13..50), password: 'pass123')
+Profile.create(name:Faker::Games::SuperSmashBros.fighter, username: Faker::Games::Witcher.character, zip_code: Faker::Address.zip_code, age: rand(13..50), password: 'pass123')
+Profile.create(name:Faker::Games::SuperSmashBros.fighter, username: Faker::Games::Witcher.character, zip_code: Faker::Address.zip_code, age: rand(13..50), password: 'pass123')
+Profile.create(name:Faker::Games::SuperSmashBros.fighter, username: Faker::Games::Witcher.character, zip_code: Faker::Address.zip_code, age: rand(13..50), password: 'pass123')
 
 #topic threads
 30.times do
 TopicThread.create(title:Faker::Book.title, description: Faker::Lorem.sentence, views:rand(1..100), profile_id: Profile.all.sample.id, sub_category_id: SubCategory.all.sample.id)
 end
 puts 'generating seed data'
+
 
 
 
