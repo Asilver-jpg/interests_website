@@ -14,9 +14,9 @@ class Profile < ApplicationRecord
   end
 
   def matches?(params)
-    username= self.username
+    username= self.username.downcase
    
-      if params.include?(username)
+      if params.downcase.include?(username)
         return true
       end
     
