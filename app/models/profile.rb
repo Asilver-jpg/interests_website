@@ -6,6 +6,7 @@ class Profile < ApplicationRecord
     has_secure_password
     validates :username, presence: true
     validates :username, uniqueness: {case_sensitive: false}
+    validates :password, presence: true
 
    
   def self.search(params)
@@ -14,9 +15,9 @@ class Profile < ApplicationRecord
   end
 
   def matches?(params)
-    username= self.username
+    username= self.username.downcase
    
-      if params.include?(username)
+      if params.downcase.include?(username)
         return true
       end
     

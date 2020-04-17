@@ -1,6 +1,9 @@
 
 
+
 <div class="body">
+<h1><%= link_to @topic_thread.sub_category.name, sub_category_path(@topic_thread.sub_category) %></h1>
+
 <h1 class="title"><%=@topic_thread.title%></h1><br>
 <%flash[:current_thread]=@topic_thread.id%>
 <p class="description"><%=@topic_thread.description%><br><br>
@@ -10,13 +13,17 @@
 
 <%@topic_thread.views += 1%><br>
 <div class="comments">
+<% if @current_profile%>
 <%= form_for(@post, url:create_post_path(@post)) do |f|%>
 <%=f.label :Comment%>:<br>
 <%=f.text_area :body%>
 <br>
 <%=f.submit :class=>"deleteButtonThread"%>
-
 <%end%>
+<% else%>
+  <p><%= You must be logged in to leave a comment%></p>
+<% end%>
+
 
  <%if @topic_thread.profile == @current_profile%>
          <%=button_to "Delete Thread", topic_thread_path(@topic_thread),method: :delete, :class=> "deleteButtonThread"%>

@@ -39,8 +39,11 @@
 <br>
 <h2>My Post History</h2>
   <% @profile.posts.each do |post| %>
+
   <div class="profileThread">
-    <%= "#{post.topic_thread.title}" %>
+
+    <%= link_to post.topic_thread.title, post.topic_thread %>
+
     <p><%= post.body%></p>
     </div>
     <hr>

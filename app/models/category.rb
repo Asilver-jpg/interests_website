@@ -9,7 +9,7 @@ class Category < ApplicationRecord
         name= self.name
         name_split= name.split
         name_split.each do |word|
-          if word == params
+          if word.downcase == params.downcase
             return true
           end
         end
