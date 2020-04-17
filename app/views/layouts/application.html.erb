@@ -21,7 +21,7 @@
         <li id="navCenter"class= "navLi"><p id="navCenterText">Website Name <p> </li>
         <% if @current_profile %>
 
-          <li class='right'><%= link_to "Log Out", sessions_path, method: :delete %></li>
+          <li class='right navLi'><%= link_to "Log Out", sessions_path, method: :delete,:class=>"navText" %></li>
         <% else %>
           <li class='right navLi'><%= link_to 'Sign-up', new_profile_path,:class=>"navText"  %></li>
           <li class='righ navLit'><%= link_to 'Login', login_path,:class=>"navText"  %></li>
