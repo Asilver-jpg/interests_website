@@ -16,7 +16,6 @@
   <% end %> 
 
 
-
   <h2>My Interests</h2>
   <% @profile.interests.each do |interest|%>
   <%= link_to interest.sub_category.name, sub_category_path(interest.sub_category.id) %>

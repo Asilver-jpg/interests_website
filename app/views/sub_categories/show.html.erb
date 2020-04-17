@@ -8,9 +8,11 @@
    <%=link_to thread.title, topic_thread_path(thread)%>
     <span class="views"><%=thread.views%></span><br>
     <%=link_to thread.profile.name, profile_path(thread.profile) %>
-    <%#if thread.profile == @current_profile%>
-    <%#end%>
-</div><br>
+ 
+    <%if thread.profile == @current_profile%>
+         <%=button_to "Delete Thread", topic_thread_path(thread),method: :delete, :confirm=> "Are you sure you want to delete this thread?"%>
+     
+    <%end%>
+    </div><br>
 <%end%>
-
 

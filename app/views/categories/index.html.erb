@@ -1,7 +1,19 @@
-<h1>Categories Home Page</h1>
-
-<% @categories.each do |category| %>
+<div class="body">
+<h1 class="title">Categories</h1>
+<hr>
 <ul>
-<li></li><%= link_to category.name, category %></li>
+<% @categories.each do |category| %>
+<div class="categoryItem">
+<li><%= link_to category.name, category, :class => "categoryText" %></li>
+</div>
 <% end%>
 </ul>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+</div>
+<br>
