@@ -7,6 +7,14 @@ Navigate to http://localhost:3000/categories when run, assuming you are running 
 
 A more detailed explanation of the app can be found in the video here. 
 
+### Front-End
+1. HTML
+2. CSS
+3. Javascript
+
+### Back-End
+1. Ruby on Rails
+2. bCrypt
 
 ### ERD
 #### MVP
