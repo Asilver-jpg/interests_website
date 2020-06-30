@@ -7,3 +7,9 @@ Navigate to http://localhost:3000/categories when run, assuming you are running 
 
 A more detailed explanation of the app can be found in the video here. 
 
+
+###ERD
+####MVP
+![MVP ERD](https://user-images.githubusercontent.com/52801399/86185897-86dbbe00-bb05-11ea-8cb4-2e1a3b01cd27.png)
+
+
